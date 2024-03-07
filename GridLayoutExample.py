@@ -9,13 +9,11 @@ mstr_grid = Frame(master, width=800, height=500)
 mstr_grid.grid()
 
 for i in range(10):  # Create 10 rows
-    mstr_grid.grid_rowconfigure(i, weight=1)
+    mstr_grid.grid_rowconfigure(i, weight=1, minsize=50)
 for i in range(10):  # Create 10 columns
-    mstr_grid.grid_columnconfigure(i, weight=1)
+    mstr_grid.grid_columnconfigure(i, weight=1, minsize=80)
 
 mstr_grid.grid_propagate(False)
-master.grid_columnconfigure(0, minsize=80)
-master.grid_rowconfigure(0, minsize=50)
 
 # Create a container box_grid
 box_grid = Frame(mstr_grid, width=300, height=200)
