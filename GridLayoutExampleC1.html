@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        table { border-collapse: collapse; }
+        td { border: 1px solid black; padding: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="container;" style="width: 83.5%; margin: 0 auto; border: 2px solid black;">
+
+<table id="myTable"></table>
+
+<script>
+    var table = document.getElementById("myTable");
+
+    for (var i = 0; i < 7; i++) {
+        var row = table.insertRow(i);
+        for (var j = 0; j < 10; j++) {
+            var cell = row.insertCell(j);
+            cell.style.minWidth = "100px";
+            cell.style.maxWidth = "100px";
+            cell.style.borderColor = 'white';
+
+            var cellDiv = document.createElement('div');
+            cellDiv.style.minHeight = "25px";
+            cell.appendChild(cellDiv);
+        }
+    }
+
+    // 1. Static Label
+    var cell1 = document.querySelector("#myTable tr:nth-child(1) td:nth-child(1)");
+    cell1.style.display = 'flex';
+    var lbl_1 = document.createElement('label');
+    lbl_1.style.whiteSpace = 'nowrap';
+    lbl_1.textContent = 'Here Is A Clock Label:';
+    cell1.appendChild(lbl_1);
+
+    // 2a. Clock Label
+    var cell2 = document.querySelector("#myTable tr:nth-child(2) td:nth-child(2)");
+    cell2.style.display = 'flex';
+    var lbl_Clock = document.createElement('label');
+    lbl_Clock.style.whiteSpace = 'nowrap';
+    lbl_Clock.style.fontFamily = 'Calibri';
+    lbl_Clock.style.fontSize = '20px';
+    lbl_Clock.style.fontWeight = 'bold';
+    // 2b. Create a function to update the time
+    function clock_time() {
+        var now = new Date();
+        var new_date = now.toLocaleDateString();  // Returns the date in the format mm/dd/yyyy
+        var new_time = now.toLocaleTimeString();  // Returns the time in the format HH:MM:SS AM/PM
+        var date_time = 'Date is ' + new_date + '\nTime is ' + new_time;
+        lbl_Clock.innerText = date_time;}
+    // 2c. Call clock_time once initially, then every 1000ms (1 second)
+    clock_time(); setInterval(clock_time, 1000);
+    // 2d. Append it to cell container
+    cell2.appendChild(lbl_Clock);
+
+    // 3. CheckBox
+    var cell3 = document.querySelector("#myTable tr:nth-child(3) td:nth-child(3)");
+    cell3.style.display = 'flex';
+    // Create a new input element
+    var checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.id = 'myCheckbox'; // This id is needed to associate the label with the checkbox
+    var cbx_lbl = document.createElement('label');
+    cbx_lbl.style.whiteSpace = 'nowrap';
+    cbx_lbl.textContent = 'Check This Out!';
+    cbx_lbl.htmlFor = checkbox.id;  // Associate the label with the checkbox
+    cell3.append(checkbox, cbx_lbl);
+
+    // 4. Image
+    var cell4 = document.querySelector("#myTable tr:nth-child(4) td:nth-child(4)");
+    var img = document.createElement('img');
+    img.src = 'GitHubProfile.jpg';
+    img.style.width = '325px'; img.style.height = '280px';
+    cell4.appendChild(img);
+
+    // 5. entryBox
+    var cell5 = document.querySelector("#myTable tr:nth-child(5) td:nth-child(7)");
+    cell5.style.display = 'flex'; cell5.style.alignItems = 'center';
+    var inputBox = document.createElement('input');
+    inputBox.type = 'text'; inputBox.id = 'myInput';
+    cell5.appendChild(inputBox);
+
+    // 6. comboBox
+    var cell6 = document.querySelector("#myTable tr:nth-child(6) td:nth-child(9)");
+    cell6.style.display = 'flex'; cell6.style.alignItems = 'center';
+    var comboBox = document.createElement('select');
+    comboBox.id = 'myComboBox';
+    var sizes = ["SMALL", "MEDIUM", "LARGE", "XTRA LARGE"];
+    for (var i = 1; i <= 4; i++) {
+        var option = document.createElement('option');
+        option.value = sizes[i-1]; option.text = sizes[i-1];
+        comboBox.appendChild(option);}
+    comboBox.style.width = '100%';
+    cell6.appendChild(comboBox);
+
+// 7 Button
+    var cell7 = document.querySelector("#myTable tr:nth-child(7) td:nth-child(10)");
+    cell7.style.display = 'flex'
+    var button = document.createElement('button');
+    button.innerHTML = "Press Button";
+    button.style.backgroundColor = 'green';
+    button.style.color = 'orange';
+    button.style.width = '100%';
+    cell7.appendChild(button);
+
+</script>
+
+</div>
+
+</body>
+</html>
