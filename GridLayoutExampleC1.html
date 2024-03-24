@@ -25,7 +25,7 @@
 
             var cellDiv = document.createElement('div');
             cellDiv.style.minHeight = "25px";
-            cell.appendChild(cellDiv);
+            cell.append(cellDiv);
         }
     }
 
@@ -35,7 +35,7 @@
     var lbl_1 = document.createElement('label');
     lbl_1.style.whiteSpace = 'nowrap';
     lbl_1.textContent = 'Here Is A Clock Label:';
-    cell1.appendChild(lbl_1);
+    cell1.append(lbl_1);
 
     // 2a. Clock Label
     var cell2 = document.querySelector("#myTable tr:nth-child(2) td:nth-child(2)");
@@ -55,7 +55,7 @@
     // 2c. Call clock_time once initially, then every 1000ms (1 second)
     clock_time(); setInterval(clock_time, 1000);
     // 2d. Append it to cell container
-    cell2.appendChild(lbl_Clock);
+    cell2.append(lbl_Clock);
 
     // 3. CheckBox
     var cell3 = document.querySelector("#myTable tr:nth-child(3) td:nth-child(3)");
@@ -75,14 +75,14 @@
     var img = document.createElement('img');
     img.src = 'GitHubProfile.jpg';
     img.style.width = '325px'; img.style.height = '280px';
-    cell4.appendChild(img);
+    cell4.append(img);
 
     // 5. entryBox
     var cell5 = document.querySelector("#myTable tr:nth-child(5) td:nth-child(7)");
     cell5.style.display = 'flex'; cell5.style.alignItems = 'center';
     var inputBox = document.createElement('input');
     inputBox.type = 'text'; inputBox.id = 'myInput';
-    cell5.appendChild(inputBox);
+    cell5.append(inputBox);
 
     // 6. comboBox
     var cell6 = document.querySelector("#myTable tr:nth-child(6) td:nth-child(9)");
@@ -93,9 +93,9 @@
     for (var i = 1; i <= 4; i++) {
         var option = document.createElement('option');
         option.value = sizes[i-1]; option.text = sizes[i-1];
-        comboBox.appendChild(option);}
+        comboBox.append(option);}
     comboBox.style.width = '100%';
-    cell6.appendChild(comboBox);
+    cell6.append(comboBox);
 
 // 7 Button
     var cell7 = document.querySelector("#myTable tr:nth-child(7) td:nth-child(10)");
@@ -105,7 +105,7 @@
     button.style.backgroundColor = 'green';
     button.style.color = 'orange';
     button.style.width = '100%';
-    cell7.appendChild(button);
+    cell7.append(button);
 
 </script>
 
